@@ -1,20 +1,22 @@
-// Smooth scrolling
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function(e) {
-        e.preventDefault();
-        document.querySelector(this.getAttribute('href')).scrollIntoView({
-            behavior: 'smooth'
-        });
-    });
-});
+// Carousel functionality
+const images = ["image1.jpg", "image2.jpg", "image3.jpg"];
+let index = 0;
+
+function nextImage() {
+    index = (index + 1) % images.length;
+    document.getElementById("carouselImage").src = images[index];
+}
 
 // Form validation
-document.getElementById('contact-form').addEventListener('submit', function(event) {
-    const email = document.getElementById('email').value;
-    const message = document.getElementById('message').value;
-
-    if (email === '' || message === '') {
+const form = document.querySelector("form");
+form.addEventListener("submit", (event) => {
+    const email = document.querySelector("#email").value;
+    if (!validateEmail(email)) {
         event.preventDefault();
-        alert('Please fill out both fields before submitting.');
+        alert("Please enter a valid email address.");
     }
 });
+
+function validateEmail(email) {
+    return /\S+@\S+\.\S+/.test(email);
+}
