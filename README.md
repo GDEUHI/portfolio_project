@@ -17,3 +17,4 @@ This is a personal bio portfolio website that includes sections for an introduct
 - CSS (Grid and Flexbox)
 - JavaScript (for interactivity)
 # portfolio_project
+# portfolio_project
